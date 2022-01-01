@@ -1,0 +1,117 @@
+import React, { Component } from "react";
+import { StyleSheet, View, ImageBackground, Alert } from "react-native";
+import MaterialRightIconTextbox from "./component/MaterialRightIconTextbox";
+
+import MaterialStackedLabelTextbox from "./component/MaterialStackedLabelTextbox";
+import MaterialButtonViolet from "./component/MaterialButtonViolet";
+import MaterialButtonPink from "./component/MaterialButtonPink";
+import Pass from "./component/pass";
+
+
+class Login extends Component {
+  onLogin = () => {
+    Alert.alert("ff");
+  };
+
+
+  render() {
+    return (
+
+      <View style={styles.container}>
+        <ImageBackground
+          source={require("./assets/images/buswal.jpg")}
+          resizeMode="contain"
+          style={styles.image}
+          imageStyle={styles.image_imageStyle}
+        >
+          <View style={styles.rect}>
+            <MaterialRightIconTextbox
+              style={styles.materialRightIconTextbox} placeholder='Username'
+            ></MaterialRightIconTextbox>
+            <Pass
+              style={styles.materialRightIconTextbox1} placeholder='Password'
+            ></Pass>
+          </View>
+          <View style={styles.materialStackedLabelTextboxRow}>
+            <MaterialStackedLabelTextbox
+              style={styles.materialStackedLabelTextbox}
+            ></MaterialStackedLabelTextbox>
+            <MaterialButtonViolet
+              style={styles.materialButtonViolet}
+              onPress={this.onLogin.bind(this)}
+            ></MaterialButtonViolet>
+          </View>
+          <MaterialButtonPink
+            style={styles.materialButtonPink} onPress={this.props.onViewHome}
+          ></MaterialButtonPink>
+        </ImageBackground>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "rgba(227,243,255,1)"
+  },
+  rect: {
+    width: 258,
+    height: 114,
+    backgroundColor: "rgba(255,255,255,1)",
+    borderRadius: 10,
+    shadowOffset: {
+      width: 5,
+      height: 5
+    },
+    shadowColor: "rgba(0,0,0,1)",
+    shadowOpacity: 0.04,
+    marginTop: 303,
+    marginLeft: 51
+  },
+  materialRightIconTextbox: {
+    width: 235,
+    height: 43,
+    marginTop: 14,
+    marginLeft: 12
+  },
+  materialRightIconTextbox1: {
+    width: 233,
+    height: 43,
+    marginLeft: 13
+  },
+  materialStackedLabelTextbox: {
+    width: 375,
+    height: 60,
+    marginTop: 6
+  },
+  materialButtonViolet: {
+    width: 156,
+    height: 36,
+    borderRadius: 10,
+    marginLeft: 1007
+  },
+  materialStackedLabelTextboxRow: {
+    height: 66,
+    flexDirection: "row",
+    marginTop: 33,
+    marginLeft: -1278,
+    marginRight: 102
+  },
+  image: {
+    width: 472,
+    height: 943,
+    marginLeft: 854
+  },
+  image_imageStyle: {},
+  materialButtonPink: {
+    width: 156,
+    height: 36,
+    borderRadius: 10,
+    marginTop: 38,
+    marginLeft: -25,
+    alignSelf: "center"
+  }
+});
+
+export default Login;
